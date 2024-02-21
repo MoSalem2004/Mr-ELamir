@@ -177,14 +177,6 @@ export default {
     },
 
     async AddData() {
-      console.log(this.selectedTime);
-      // let formattedTime = moment(this.selectedTime, "hh:mm A").format("HH:mm");
-
-      // console.log("formattedTime", formattedTime);
-
-      // قم بطباعة الوقت المنسق
-      console.log("this.Time ", this.selectedTime);
-      console.log("this.selectedDate ", this.formatDate(this.selectedDate));
       if (this.selectedTime && this.selectedDate) {
         const newData = {
           Time: this.selectedTime,

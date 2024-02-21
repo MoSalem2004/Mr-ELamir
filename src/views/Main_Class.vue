@@ -16,12 +16,6 @@
       >
         <nav aria-label="breadcrumb">
           <MDBBreadcrumb>
-            <MDBBreadcrumbItem
-              ><router-link to="/">{{ Type }}</router-link></MDBBreadcrumbItem
-            >
-            <MDBBreadcrumbItem
-              ><router-link to="/">{{ Lang }}</router-link></MDBBreadcrumbItem
-            >
             <MDBBreadcrumbItem active>{{ Class }}</MDBBreadcrumbItem>
           </MDBBreadcrumb>
         </nav>
@@ -193,16 +187,7 @@
           <table border="1" width="100%">
             <tbody>
               <tr>
-                <td>الدراسة</td>
-                <td>{{ BillType }}</td>
-              </tr>
-
-              <tr>
-                <td>القسم</td>
-                <td>{{ BillLang }}</td>
-              </tr>
-              <tr>
-                <td>الفرقة</td>
+                <td>الصف</td>
                 <td>{{ BillClass }}</td>
               </tr>
               <tr>
@@ -701,7 +686,6 @@ export default {
     //   const documentSnapshot = await getDoc(documentRef);
     //   const fieldName = "pay";
     //   const currentFieldValue = documentSnapshot.data()[fieldName];
-    //   console.log("currentFieldValue", documentSnapshot.data()[fieldName]);
     //   let Data = {
     //     auth_token: token,
     //     amount_cents: `${this.BillPrice}00`,

@@ -168,7 +168,6 @@ export default {
   },
   methods: {
     SelectFunction(event) {
-      console.log(event.target.value);
       this.Season = event.target.value;
     },
     Close() {
@@ -206,12 +205,6 @@ export default {
     },
     async getdata() {
       this.showDownloadIcon = true;
-      // this.AllData = [];
-      console.log(
-        `${localStorage.getItem("updateType")} - ${localStorage.getItem(
-          "updateLang"
-        )} - ${localStorage.getItem("updateClass")}`
-      );
 
       const docRef = doc(
         db,
@@ -222,7 +215,6 @@ export default {
       );
       try {
         const doc = await getDoc(docRef);
-        console.log("Document data:", doc.data());
         this.sub_name = doc.data().sub_name;
         this.Number_of_videos = doc.data().Number_of_videos;
         this.Video_price = doc.data().Video_price;

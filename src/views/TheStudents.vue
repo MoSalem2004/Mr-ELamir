@@ -146,104 +146,20 @@
           />
         </div>
         <div class="body">
-          <v-card class="mx-auto" width="100%" style="padding: 20px 10px">
-            <v-card-title
-              style="
-                padding: 10px;
-                gap: 10px;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start !important;
-              "
-              class="text-h6 font-weight-regular justify-space-between mb-2.5"
+          <div class="selecte_3 flex justify-center gap-2.5 flex-wrap">
+            <a
+              v-for="Class in classes"
+              :key="Class"
+              class="border-gray-300 border rounded flex justify-center items-center w-23 p-10 cursor-pointer hover_color_border"
+              @click="SlidersFunction"
             >
-              <v-avatar
-                v-text="step"
-                style="width: 30px; height: 30px; font-size: 15px"
-              ></v-avatar>
-              <span
-                style="
-                  font-size: 20px;
-                  font-weight: bold;
-                  font-family: system-ui;
-                "
-                >{{ currentTitle }}</span
-              >
-            </v-card-title>
-
-            <v-window v-model="step">
-              <v-window-item :value="1">
-                <div
-                  class="selecte_1 flex justify-center gap-2.5 flex-wrap selecte"
-                >
-                  <span
-                    class="border-gray-300 border rounded flex justify-center items-center p-10 cursor-pointer hover_color_border"
-                    @click="select_1"
-                    >كلية الشريعة و القانون</span
-                  >
-                  <span
-                    class="border-gray-300 border rounded flex justify-center items-center p-10 cursor-pointer hover_color_border"
-                    @click="select_1"
-                    >معهد أعوان القضاء</span
-                  >
-                </div>
-              </v-window-item>
-
-              <v-window-item :value="2">
-                <div
-                  class="selecte_2 flex justify-center gap-2.5 flex-wrap selecte"
-                >
-                  <span
-                    @click="select_2"
-                    class="border-gray-300 border rounded flex justify-center items-center p-10 cursor-pointer hover_color_border"
-                    >عربي</span
-                  >
-                  <span
-                    @click="select_2"
-                    class="border-gray-300 border rounded flex justify-center items-center p-10 cursor-pointer hover_color_border"
-                    >English</span
-                  >
-                </div>
-              </v-window-item>
-
-              <v-window-item :value="3">
-                <div class="selecte_3 flex justify-center gap-2.5 flex-wrap">
-                  <a
-                    v-for="Class in classes"
-                    :key="Class"
-                    class="border-gray-300 border rounded flex justify-center items-center w-23 p-10 cursor-pointer hover_color_border"
-                    @click="Sliders = !Sliders"
-                  >
-                    {{ Class }}
-                  </a>
-                </div>
-              </v-window-item>
-            </v-window>
-
-            <v-divider></v-divider>
-
-            <v-card-actions>
-              <v-btn
-                v-if="step > 1"
-                variant="text"
-                @click="step--"
-                style="
-                  color: var(--main-color);
-                  border: 1px solid var(--main-color);
-                "
-              >
-                السابق
-              </v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
+              {{ Class }}
+            </a>
+          </div>
         </div>
       </div>
       <nav class="mb-2.5" aria-label="breadcrumb">
         <MDBBreadcrumb>
-          <MDBBreadcrumbItem>{{ Type }} </MDBBreadcrumbItem>
-          <MDBBreadcrumbItem>{{ Lang }} </MDBBreadcrumbItem>
-
           <MDBBreadcrumbItem> {{ Class }}</MDBBreadcrumbItem>
         </MDBBreadcrumb>
         <div style="display: flex; align-items: center; gap: 10px">
@@ -678,15 +594,7 @@
       <div class="box_1 border p-2.5" v-for="bill in Result" :key="bill">
         <div class="small_box">
           <div>
-            <div>الدراسة</div>
-            <div>{{ bill.Type }}</div>
-          </div>
-          <div>
-            <div>القسم</div>
-            <div>{{ bill.Lang }}</div>
-          </div>
-          <div>
-            <div>الفرقة</div>
+            <div>الصف</div>
             <div>{{ bill.Class }}</div>
           </div>
           <div>
@@ -790,14 +698,13 @@ export default {
   },
   data: () => ({
     Info: null,
-    Class: "الفرقة الأولي",
+    Class: "الصف الأول الثانوي",
     Lang: "عربي",
     Type: "كلية الشريعة و القانون",
     classes: [
-      "الفرقة الأولي",
-      "الفرقة الثانية",
-      "الفرقة الثالثة",
-      "الفرقة الرابعة",
+      "الصف الأول الثانوي",
+      "الصف الثاني الثانوي",
+      "الصف الثالث الثانوي",
     ],
     step: 1,
     Students: [],
@@ -817,6 +724,19 @@ export default {
     AllBoy: 0,
   }),
   methods: {
+    SlidersFunction() {
+      this.Sliders = !this.Sliders;
+      document.querySelectorAll(".selecte_3 a").forEach((e) => {
+        e.onclick = () => {
+          console.log(e.innerHTML);
+          this.Class = e.innerHTML;
+
+          setTimeout(() => {
+            this.GetData();
+          }, 10);
+        };
+      });
+    },
     SearchFunction() {
       this.searchNames();
       this.Search = !this.Search;
@@ -855,23 +775,25 @@ export default {
         console.log(" box.length", box.length);
         for (let i = 0; i < box.length; i++) {
           // console.log("(num[i].innerHTML", +num[i].innerHTML);
-          if (+num[i].innerHTML === 1) {
-            box[i].querySelectorAll(".Icons svg")[0].style.display = "block";
-          }
-          if (+num[i].innerHTML <= 2) {
-            box[i].querySelectorAll(".Icons svg")[1].style.display = "block";
-          }
-          if (+num[i].innerHTML <= 3) {
-            box[i].querySelectorAll(".Icons svg")[2].style.display = "block";
-          }
-          if (+num[i].innerHTML < 11) {
-            box[i].querySelectorAll(".Icons svg")[3].style.display = "block";
-          }
-          if (+num[i].innerHTML < 51) {
-            box[i].querySelectorAll(".Icons svg")[4].style.display = "block";
-          }
-          if (+num[i].innerHTML < 101) {
-            box[i].querySelectorAll(".Icons svg")[5].style.display = "block";
+          if (+num[i]) {
+            if (+num[i].innerHTML === 1) {
+              box[i].querySelectorAll(".Icons svg")[0].style.display = "block";
+            }
+            if (+num[i].innerHTML <= 2) {
+              box[i].querySelectorAll(".Icons svg")[1].style.display = "block";
+            }
+            if (+num[i].innerHTML <= 3) {
+              box[i].querySelectorAll(".Icons svg")[2].style.display = "block";
+            }
+            if (+num[i].innerHTML < 11) {
+              box[i].querySelectorAll(".Icons svg")[3].style.display = "block";
+            }
+            if (+num[i].innerHTML < 51) {
+              box[i].querySelectorAll(".Icons svg")[4].style.display = "block";
+            }
+            if (+num[i].innerHTML < 101) {
+              box[i].querySelectorAll(".Icons svg")[5].style.display = "block";
+            }
           }
         }
       }, 100);
@@ -895,32 +817,7 @@ export default {
     },
     select_2() {
       this.step++;
-      setTimeout(() => {
-        if (this.Type === "معهد أعوان القضاء") {
-          document.querySelector(
-            ".selecte_3  > a:nth-child(3) "
-          ).style.display = "none";
-          document.querySelector(
-            ".selecte_3  > a:nth-child(4) "
-          ).style.display = "none";
-        } else {
-          document.querySelector(
-            ".selecte_3  > a:nth-child(3) "
-          ).style.display = "block";
-          document.querySelector(
-            ".selecte_3  > a:nth-child(4) "
-          ).style.display = "block";
-        }
-        document.querySelectorAll(".selecte_3 a").forEach((e) => {
-          e.onclick = () => {
-            this.Class = e.innerHTML;
-
-            setTimeout(() => {
-              this.GetData();
-            }, 10);
-          };
-        });
-      }, 2);
+      setTimeout(() => {}, 10);
     },
     select() {
       document.querySelectorAll(".selecte_1 span").forEach((e) => {

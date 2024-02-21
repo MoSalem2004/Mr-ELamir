@@ -41,6 +41,7 @@
         class="main_Overlay"
         v-if="ShowAddAdmin"
         @click="ShowAddAdminFunction"
+        style="z-index: 1001"
       ></div>
       <div
         class="AddAdmin bg-white fixed z-10 rounded p-2.5 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 max-h-90 overflow-auto"
@@ -243,9 +244,12 @@ export default {
     email: "",
     emailRules: [
       (value) => {
-        if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) return true;
-
-        return "البريد الإلكتروني غير صحيح";
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailRegex.test(value)) {
+          return true;
+        } else {
+          return "البريد الإلكتروني غير صحيح";
+        }
       },
     ],
     items: ["الكل", "إضافة الإختبارات & كورسات"],
@@ -282,19 +286,17 @@ export default {
           return new Promise((resolve, reject) => {
             bcrypt.hash(password.toString(), saltRounds, (err, hash) => {
               if (err) {
-                console.error(err);
                 reject(err);
               } else {
-                console.log("كلمة المرور المشفرة:", hash);
                 resolve(hash);
               }
             });
           });
         };
         const passwordWithHash = await hashPassword(this.password, saltRounds);
-        console.log(passwordWithHash);
         const docRef = await addDoc(collection(db, "المشرفين"), {
           Name: this.Name,
+          email: this.email,
           phone: this.phone,
           password: passwordWithHash,
           powers:

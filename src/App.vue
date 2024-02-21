@@ -74,7 +74,7 @@ export default {
   font-family: system-ui;
 }
 :root {
-  --main-color: #075e55;
+  --main-color: #a231ff;
 }
 * {
   direction: rtl;

@@ -115,7 +115,6 @@ export default {
       const timeInput = document.getElementById("Time");
 
       if (!timeInput) {
-        console.error("Time input element not found");
         return;
       }
 

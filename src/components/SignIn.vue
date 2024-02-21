@@ -163,7 +163,6 @@ export default {
   },
   methods: {
     // async forgotPassword() {
-    //   console.log("forgotPassword");
     //   // Check if the phone number is registered
     //   const q = query(
     //     collection(db, "المشرفين"),
@@ -203,11 +202,6 @@ export default {
     //     console.log("No such document!");
     //   }
     // },
-    sendPasswordToEmail(email, password) {
-      // Replace this with your own email sending logic
-      // For example, you can use a third-party email service or your own server-side code
-      console.log(`Sending password to ${email}: ${password}`);
-    },
 
     async SignIn() {
       let MainState;
@@ -254,11 +248,9 @@ export default {
                 return;
               }
               if (result) {
-                console.log("تم التحقق بنجاح");
                 this.ErrorMsg = "";
                 MainState = true;
               } else {
-                console.log("فشل التحقق");
                 this.ErrorMsg = "كلمة المرور خاطئة";
                 MainState = false;
               }

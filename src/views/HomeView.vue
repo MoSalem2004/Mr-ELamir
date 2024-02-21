@@ -3,7 +3,6 @@
     <TheLanding id="Home" />
     <Features />
     <TheClasses />
-    <TheGallary />
   </div>
 </template>
 
@@ -12,7 +11,6 @@
 import TheLanding from "@/components/TheLanding.vue";
 import Features from "@/components/Features.vue";
 import TheClasses from "@/components/TheClasses.vue";
-import TheGallary from "@/components/TheGallary.vue";
 
 export default {
   name: "HomeView",
@@ -21,7 +19,6 @@ export default {
     TheLanding,
     Features,
     TheClasses,
-    TheGallary,
   },
 };
 </script>

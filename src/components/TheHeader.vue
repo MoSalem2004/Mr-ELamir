@@ -1,19 +1,27 @@
 <template>
   <div class="Header">
-    <div class="container flex justify-between items-center gap-2.5">
+    <div
+      class="container flex justify-between items-center gap-2.5"
+      style="direction: ltr"
+    >
       <div class="logo">
-        <router-link to="/" class="flex items-center gap-2.5">
+        <router-link
+          to="/"
+          class="flex items-center gap-2.5"
+          style="direction: ltr"
+        >
           <img
-            src="../assets/_0cb84ec6-1ab4-447d-b53f-7d7e69328fe9.jpg"
-            alt="أكاديمية القانون القانونية"
+            src="../assets/_981b2649-32a2-4324-9279-4b99bee25143.jpg"
+            alt="elamer "
             class="h-24 rounded-full"
           />
-          <span class="text-xl font-bold text-main-color"
-            >أكاديمية القانون
-          </span>
+          <span class="text-xl font-bold text-main-color">ELAMER </span>
         </router-link>
       </div>
-      <div class="left flex items-center gap-2.5 flex-wrap">
+      <div
+        class="left flex items-center gap-2.5 flex-wrap"
+        style="direction: ltr"
+      >
         <div class="links relative hidden">
           <div class="all_links flex gap-2.5 rounded p-2.5">
             <span class="cursor-pointer border-b border-gray-300 pb-2.5"
@@ -426,9 +434,7 @@ export default {
           const docRef = doc(db, "المشرفين", localStorage.getItem("userid"));
           const docSnap = await getDoc(docRef);
           // docSnap.data() will be undefined in this case
-          console.log("No such document!");
           if (docSnap.exists()) {
-            console.log("Document data:", docSnap.data());
             Name = docSnap.data().Name;
           } else {
             console.log("No such document!");

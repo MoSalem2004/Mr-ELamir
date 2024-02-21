@@ -466,11 +466,6 @@ export default {
       let Array = [];
       // let State;
       for (let i = 0; i < docData.resultes.length; i++) {
-        console.log(docData.Type);
-        console.log(
-          "ocData.resultes[i].Type",
-          docData.resultes[i].Type.split(" ")[0]
-        );
         if (
           docData.resultes[i].Type.split(" ")[0] === docData.Type &&
           docData.resultes[i].Class === docData.Class &&

@@ -352,18 +352,7 @@ export default {
       let currentDate_v2 = moment(currentDate)
         .locale("ar")
         .format("DD/MM/YYYY");
-      console.log(
-        "TimeInData",
-        moment(this.AllTest[index].Time, "HH:mm").unix()
-      );
-      console.log(
-        "DateInData",
-        moment(this.AllTest[index].Date, "DD/MM/YYYY").unix()
-      );
-      console.log(
-        "currentDate_v2",
-        moment(currentDate_v2, "DD/MM/YYYY").unix()
-      );
+
       if (
         moment(currentDate_v2, "DD/MM/YYYY").unix() >
         moment(this.AllTest[index].Date, "DD/MM/YYYY").unix()
@@ -386,7 +375,6 @@ export default {
       }
 
       if (this.main_state) {
-        console.log("this.main_state", this.main_state);
         if (this.AllTest[index].Type === "مدفوع") {
           if (this.ShowBtnToUser === "Admin") {
             this.ShowTest = true;
@@ -415,7 +403,6 @@ export default {
               }
               if (user.pay.length === 0) {
                 this.snackbar_1 = true;
-                console.log("مدفوع");
               }
             });
           }
