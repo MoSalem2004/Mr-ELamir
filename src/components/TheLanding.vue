@@ -54,8 +54,9 @@
                 font-family: system-ui;
               "
             >
-              منصة د / الأمير منصة تعليمية متخصصة لتدريس الكيمياء للمراحل
-              الثانوية
+              منصة د / الأمير منصة تعليمية متخصصة لتدريس
+              <strong> الكيمياء </strong>
+              للمراحل الثانوية
             </p>
           </div>
         </div>
@@ -162,6 +163,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+strong {
+  font-size: 35px;
+  color: var(--main-color);
+  font-weight: bold;
+  font-family: system-ui;
+}
 @keyframes showup {
   0% {
     opacity: 0;
