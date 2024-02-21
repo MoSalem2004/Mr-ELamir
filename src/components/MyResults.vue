@@ -231,7 +231,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 5px;
-      background: linear-gradient(-45deg, #075e55, white);
+      background: llinear-gradient(-45deg, rgb(162 49 255), white);
       font-size: 18px;
       font-weight: bold;
       color: var(--main-color);

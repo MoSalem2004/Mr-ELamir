@@ -54,12 +54,12 @@
             class="w-48"
           ></v-text-field>
 
-          <div class="body">
+          <div class="body" style="width: 100%">
             <div class="selecte_3 flex justify-center gap-2.5 flex-wrap">
               <a
                 v-for="Class in classes"
                 :key="Class"
-                class="border-gray-300 border rounded flex justify-center items-center w-23 p-10 cursor-pointer hover_color_border"
+                class="border rounded flex justify-center items-center p-10 cursor-pointer hover_color_border"
                 @click="SlidersFunction"
               >
                 {{ Class }}
@@ -76,11 +76,11 @@
               color: var(--main-color);
             "
           >
-            لقد أخترت : {{ type }} - {{ lang }} - {{ Class }}
+            لقد أخترت : {{ Class }}
           </div>
           <v-select
             class="w-100"
-            label="حدد مكان كليتك / معهدك"
+            label="حدد مكان معهدك"
             :items="items"
             v-model="selectedPlace"
           ></v-select>
@@ -200,7 +200,7 @@
           border-radius: 5px;
         "
       >
-        أهلا بك في منصة الإمام القانونية
+        أهلا بك في منصة دكتور الأمير للكيمياء
       </div>
     </div>
     <div
@@ -253,6 +253,7 @@ export default {
   emits: ["close_2"],
   mounted() {
     this.select();
+    this.select_2();
   },
   watch: {
     loading(val) {
@@ -511,8 +512,6 @@ export default {
         const names = this.selectedPlace.split(" - ");
         const firstName = names[0];
         const lastName = names[1];
-        const names_1 = this.type.split(" ");
-        const firstName_1 = names_1[0];
 
         // Make Hashing
 
@@ -539,8 +538,6 @@ export default {
           phone: this.phone,
           email: this.email,
           password: passwordWithHash,
-          Type: firstName_1,
-          Lang: this.lang,
           Class: this.Class,
           resultes: [],
           pay: [],
@@ -555,43 +552,15 @@ export default {
       }
     },
 
-    select_1() {
-      this.step++;
-      setTimeout(() => {
-        if (this.type === "معهد أعوان القضاء") {
-          document.querySelector(".selecte_2 > span:last-child").style.display =
-            "none";
-        } else {
-          document.querySelector(".selecte_2 > span:last-child").style.display =
-            "block";
-        }
-        document.querySelectorAll(".selecte_2 span").forEach((e) => {
-          e.onclick = () => {
-            this.lang = e.innerHTML;
-          };
-        });
-      }, 1);
-    },
     select_2() {
-      this.step++;
       setTimeout(() => {
-        if (this.type === "معهد أعوان القضاء") {
-          document.querySelector(
-            ".selecte_3  > a:nth-child(3) "
-          ).style.display = "none";
-          document.querySelector(
-            ".selecte_3  > a:nth-child(4) "
-          ).style.display = "none";
-        } else {
-          document.querySelector(
-            ".selecte_3  > a:nth-child(3) "
-          ).style.display = "block";
-          document.querySelector(
-            ".selecte_3  > a:nth-child(4) "
-          ).style.display = "block";
-        }
         document.querySelectorAll(".selecte_3 a").forEach((e) => {
           e.onclick = () => {
+            document.querySelectorAll(".selecte_3 a").forEach((e) => {
+              e.classList.remove("active");
+            });
+            console.log(e.innerHTML);
+            e.classList.add("active");
             this.Class = e.innerHTML;
             this.Selector = true;
             // localStorage.setItem("updateType", this.type);
@@ -645,13 +614,19 @@ export default {
     text-align: center;
   }
 }
+.selecte_3 {
+  width: 100%;
+}
 .selecte_3 > a {
   color: var(--main-color) !important;
   font-weight: bold;
   font-size: 16px;
-  width: 46% !important;
+  width: 32% !important;
   font-family: system-ui;
   text-align: center;
+}
+.active {
+  border-color: var(--main-color) !important;
 }
 .container {
   // background-image: url("../assets/_a5414e18-965b-4c41-9d96-575e60c5e625.jpg");
