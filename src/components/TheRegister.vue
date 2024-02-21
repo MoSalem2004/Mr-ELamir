@@ -54,93 +54,18 @@
             class="w-48"
           ></v-text-field>
 
-          <v-card class="mx-auto" width="100%" style="padding: 20px 10px">
-            <v-card-title
-              style="padding: 10px"
-              class="flex text-h6 font-weight-regular justify-space-between mb-2.5 gap-2.5"
-            >
-              <v-avatar v-text="step"></v-avatar>
-              <span
-                style="
-                  font-size: 20px;
-                  font-weight: bold;
-                  font-family: system-ui;
-                  margin-right: 10px;
-                "
-                >{{ currentTitle }}</span
+          <div class="body">
+            <div class="selecte_3 flex justify-center gap-2.5 flex-wrap">
+              <a
+                v-for="Class in classes"
+                :key="Class"
+                class="border-gray-300 border rounded flex justify-center items-center w-23 p-10 cursor-pointer hover_color_border"
+                @click="SlidersFunction"
               >
-            </v-card-title>
-
-            <v-window v-model="step">
-              <v-window-item :value="1">
-                <div
-                  class="selecte_1 flex justify-center gap-2.5 flex-wrap selecte"
-                >
-                  <span
-                    class="border-gray-300 border rounded flex justify-center items-center p-10 cursor-pointer hover_color_border"
-                    style="width: 48%"
-                    @click="select_1"
-                    >كلية الشريعة و القانون</span
-                  >
-                  <span
-                    class="border-gray-300 border rounded flex justify-center items-center p-10 cursor-pointer hover_color_border"
-                    style="width: 48%"
-                    @click="select_1"
-                    >معهد أعوان القضاء</span
-                  >
-                </div>
-              </v-window-item>
-
-              <v-window-item :value="2">
-                <div
-                  class="selecte_2 flex justify-center gap-2.5 flex-wrap selecte"
-                >
-                  <span
-                    @click="select_2"
-                    class="border-gray-300 border rounded flex justify-center items-center p-10 cursor-pointer hover_color_border"
-                    style="width: 48%"
-                    >عربي</span
-                  >
-                  <span
-                    @click="select_2"
-                    class="border-gray-300 border rounded flex justify-center items-center p-10 cursor-pointer hover_color_border"
-                    style="width: 48%"
-                    >English</span
-                  >
-                </div>
-              </v-window-item>
-
-              <v-window-item :value="3">
-                <div class="selecte_3 flex justify-center gap-2.5 flex-wrap">
-                  <a
-                    v-for="Class in classes"
-                    :key="Class"
-                    class="border-gray-300 border rounded flex justify-center items-center w-23 p-10 cursor-pointer hover_color_border"
-                    @click="AddBorder($event)"
-                  >
-                    {{ Class }}
-                  </a>
-                </div>
-              </v-window-item>
-            </v-window>
-
-            <v-divider></v-divider>
-
-            <v-card-actions>
-              <v-btn
-                v-if="step > 1"
-                variant="text"
-                @click="step--"
-                style="
-                  color: var(--main-color);
-                  border: 1px solid var(--main-color);
-                "
-              >
-                السابق
-              </v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
+                {{ Class }}
+              </a>
+            </div>
+          </div>
           <div
             style="
               width: 100%;
@@ -454,10 +379,9 @@ export default {
         },
       ],
       classes: [
-        "الفرقة الأولي",
-        "الفرقة الثانية",
-        "الفرقة الثالثة",
-        "الفرقة الرابعة",
+        "الصف الأول الثانوي",
+        "الصف الثاني الثانوي",
+        "الصف الثالث الثانوي",
       ],
       step: 1,
       Selector: null,
