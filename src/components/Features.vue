@@ -94,7 +94,16 @@
           z-index: 0;
         "
       />
-
+      <!-- <img
+        src="../assets/Animation - 1708506440512.gif"
+        alt=""
+        style="
+          z-index: 100;
+          position: absolute;
+          bottom: 30px;
+          filter: brightness(0.6);
+        "
+      /> -->
       <!-- partial:index.partial.html -->
       <div class="holder">
         <div class="candle">
