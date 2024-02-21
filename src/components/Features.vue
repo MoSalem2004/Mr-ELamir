@@ -217,6 +217,12 @@ background: ${hslColors()}; width: ${width}px ;height:${width}px; bottom: ${bott
 };
 </script>
 <style lang="scss" scoped>
+.section {
+  background-image: url("../assets/seamless-chemical-pattern-chemical-glassware-and-vector-6012334.jpg");
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed;
+}
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i");
 
 header,
@@ -510,6 +516,7 @@ ul {
   border-radius: 4rem;
   border: 0.6rem solid #645c6b;
   z-index: 100;
+  background: var(--main-color);
 }
 
 .liquid {
