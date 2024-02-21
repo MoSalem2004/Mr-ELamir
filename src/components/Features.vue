@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Features">
     <div
       class="animation container"
       style="
@@ -51,12 +51,7 @@
 
     <div
       class="container-0"
-      style="
-        margin-top: -43px;
-        z-index: 99;
-        position: relative;
-        background: #fff;
-      "
+      style="margin-top: -43px; z-index: 99; position: relative"
     >
       <div
         class="test-tube"
@@ -87,29 +82,42 @@
       <a href="https://dribbble.com/myacode" class="dribbble" target="_blank"
         ><ion-icon name="logo-dribbble"></ion-icon
       ></a>
+      <img
+        src="../assets/_a5414e18-965b-4c41-9d96-575e60c5e625.jpg"
+        alt=""
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 95%;
+          z-index: 0;
+        "
+      />
+
+      <!-- partial:index.partial.html -->
+      <div class="holder">
+        <div class="candle">
+          <div class="blinking-glow"></div>
+          <div class="thread"></div>
+          <div class="glow"></div>
+          <div class="flame"></div>
+        </div>
+      </div>
+      <!-- partial -->
+      <img
+        src="../assets/walnut wood texture.jpg"
+        style="
+          width: 100%;
+          height: 50px;
+          position: relative;
+          top: -35px;
+          z-index: 1;
+        "
+        alt=""
+      />
     </div>
   </div>
-  <!-- partial:index.partial.html -->
-  <div class="holder">
-    <div class="candle">
-      <div class="blinking-glow"></div>
-      <div class="thread"></div>
-      <div class="glow"></div>
-      <div class="flame"></div>
-    </div>
-  </div>
-  <!-- partial -->
-  <img
-    src="../assets/walnut wood texture.jpg"
-    style="
-      width: 100%;
-      height: 50px;
-      position: relative;
-      top: -35px;
-      z-index: -1;
-    "
-    alt=""
-  />
 </template>
 
 <script>
@@ -217,11 +225,14 @@ background: ${hslColors()}; width: ${width}px ;height:${width}px; bottom: ${bott
 };
 </script>
 <style lang="scss" scoped>
-.section {
-  background-image: url("../assets/seamless-chemical-pattern-chemical-glassware-and-vector-6012334.jpg");
-  background-size: cover;
-  background-position: center top;
-  background-attachment: fixed;
+.Features {
+  // background-image: url("../assets/seamless-chemical-pattern-chemical-glassware-and-vector-6012334.jpg");
+  // background-size: cover;
+  // background-position: center top;
+  // background-attachment: fixed;
+  width: 100%;
+  z-index: 200;
+  // height: 500px;
 }
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700,700i");
 
@@ -257,6 +268,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
 .holder *,
