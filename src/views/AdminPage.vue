@@ -48,7 +48,7 @@ export default {
 </script>
 <style lang="scss">
 .AdminPage {
-  background-image: url("../assets/WhatsApp Image 2023-12-04 at 11.00.58 PM.jpeg");
+  background-image: url("../assets/_a5414e18-965b-4c41-9d96-575e60c5e625.jpg");
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;
