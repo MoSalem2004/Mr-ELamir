@@ -551,7 +551,7 @@ export default {
 }
 
 .ShowAllResult {
-  background-image: url("../assets/_a5414e18-965b-4c41-9d96-575e60c5e625.jpg");
+  background-image: url("../assets/oie_iipONfIda6gh.png");
   background-size: cover;
   background-position: center top;
   background-attachment: fixed;

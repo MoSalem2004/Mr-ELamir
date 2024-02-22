@@ -83,7 +83,7 @@
         ><ion-icon name="logo-dribbble"></ion-icon
       ></a>
       <img
-        src="../assets/_a5414e18-965b-4c41-9d96-575e60c5e625.jpg"
+        src="../assets/oie_iipONfIda6gh.png"
         alt=""
         style="
           position: absolute;
@@ -92,6 +92,7 @@
           width: 100%;
           height: 95%;
           z-index: 0;
+          object-fit: cover;
         "
       />
       <!-- <img
