@@ -316,7 +316,7 @@
               class="flex align-center justify-between font-bold"
               style="background: #fafafa; padding: 10px; border-radius: 5px"
             >
-              <div class="num">01000000000</div>
+              <div class="num">01012366733</div>
 
               <div
                 class="flex color align-center justify-between gap-2.5 bg-[#fff] p-2.5 rounded cursor-pointer"
@@ -353,7 +353,7 @@
               class="flex align-center justify-between font-bold"
               style="background: #fafafa; padding: 10px; border-radius: 5px"
             >
-              <div class="num">01500000000</div>
+              <div class="num">01282027633</div>
               <div
                 class="flex color align-center justify-between gap-2.5 bg-[#fff] p-2.5 rounded cursor-pointer"
                 @click="copyTextDad($event)"
@@ -964,6 +964,9 @@ export default {
         this.Ids.push(doc.id);
       });
       this.showDownloadIcon = false;
+      AllData.length === 0
+        ? (this.showDownloadIcon = false)
+        : (this.showDownloadIcon = true);
       setTimeout(() => {
         this.EditFunction();
         this.AddSubToStore();
